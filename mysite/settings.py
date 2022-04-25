@@ -39,9 +39,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECRET_KEY = os.environ.get("SECRET_KEY", '%=2qos%!(bn#r@u@%xpfr15t!bnvabmj2(d$#r-k!yt@zfq^va')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["dj-polls-app.herokuapp.com"]
+ALLOWED_HOSTS = ["dj-polls-app.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
