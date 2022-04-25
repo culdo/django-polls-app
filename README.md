@@ -1,12 +1,12 @@
-# Django 投票 APP
+# Django 投票APP
 The demo app made by following the official tutorial and also deploy on Heroku
 # Database
 * Heroku Postgres
 # Developing
 Run `python3 manage.py runserver`
-# Testing
+# Unit testing locally
 Run `python3 manage.py test`
-# Testing on GitHub Action
+# Unit testing on GitHub Action
 Check out `.github/workflows/main.yaml` file to see how it works
 # Deploy on Heroku
 1. Use GitHub action at `.github/workflows/main.yaml`
@@ -16,3 +16,6 @@ Check out `.github/workflows/main.yaml` file to see how it works
 ## Production requirements
 * gunicorn
 * whitenoise
+
+# To-do-list
+- [ ] Integration testing
