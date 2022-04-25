@@ -34,7 +34,7 @@ STATICFILES_DIRS = (
 SECRET_KEY = os.environ.get("SECRET_KEY", '%=2qos%!(bn#r@u@%xpfr15t!bnvabmj2(d$#r-k!yt@zfq^va')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["dj-polls-app.herokuapp.com"]
 
