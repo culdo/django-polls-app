@@ -43,13 +43,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["dj-polls-app.herokuapp.com", "127.0.0.1"]
 
-TEST_DATABASES = {
-    'default': dj_database_url.config(env='TEST_DATABASE_URL')
-}
-
-# We use HerokuTestSuiteRunner class when deployed on Heroku
-TEST_RUNNER = os.environ.get("TEST_RUNNER", "django.test.runner.DiscoverRunner")
-
 # Application definition
 
 INSTALLED_APPS = [

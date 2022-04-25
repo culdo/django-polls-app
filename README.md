@@ -6,6 +6,8 @@ The demo app made by following the official tutorial and also deploy on Heroku
 Run `python3 manage.py runserver`
 # Testing
 Run `python3 manage.py test`
+# Testing on GitHub Action
+Check out `.github/workflows/main.yaml` file to see how it works
 # Deploy on Heroku
 1. Use GitHub action at `.github/workflows/main.yaml`
 2. Run `heroku config:set SECRET_KEY <your-secret-key>` to config vars
