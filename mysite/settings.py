@@ -43,6 +43,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["dj-polls-app.herokuapp.com", "127.0.0.1"]
 
+TEST_DATABASES = {
+    'default': dj_database_url.config(env='TEST_DATABASE_URL')
+}
+
+# We use HerokuTestSuiteRunner class when deployed on Heroku
+TEST_RUNNER = os.environ.get("TEST_RUNNER", "django.test.runner.DiscoverRunner")
 
 # Application definition
 
@@ -87,14 +93,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql:///testsite',conn_max_age=600)
+    'default': dj_database_url.config(default='postgresql:///testsite', conn_max_age=600)
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -113,7 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
