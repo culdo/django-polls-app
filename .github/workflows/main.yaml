@@ -23,6 +23,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Unit Tests
         run: |
+          python manage.py collectstatic
           python manage.py test
       - name: Deploy on Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
