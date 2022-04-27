@@ -1,0 +1,15 @@
+li a {
+    color: saddlebrown;
+}
+a {
+    display:block
+}
+.vote-list {
+    font-size: x-large;
+    width: 50%;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: a;*/
+}
