@@ -36,12 +36,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", '%=2qos%!(bn#r@u@%xpfr15t!bnvabmj2(d$#r-k!yt@zfq^va')
+SECRET_KEY = '%=2qos%!(bn#r@u@%xpfr15t!bnvabmj2(d$#r-k!yt@zfq^va'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["dj-polls-app.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
