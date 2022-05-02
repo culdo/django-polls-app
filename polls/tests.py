@@ -1,8 +1,10 @@
 import datetime
 
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
+from django.contrib.auth.hashers import make_password, check_password
 
 from .models import Question, Choice
 
@@ -139,6 +141,13 @@ class QuestionVoteTests(TestCase):
         self.assertContains(response, f"{vote_question.choice_set.all()[0].choice_text} -- 1 票")
 
 
+def create_user(username, password):
+    return User.objects.create(username=username, password=password)
+
+
 class LoginTests(TestCase):
     def test_login(self):
-        pass
+        user = create_user("test_user", make_password("test_pass"))
+        url = reverse('login')
+        response = self.client.post(url, {"username": user.username, "password": "test_pass"})
+        self.assertRedirects(response, reverse('polls:index'))
