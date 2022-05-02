@@ -1,6 +1,6 @@
-{% extends "base_generic.html" %}
+{% extends "polls/base.html" %}
 {% block title %}投票列表{% endblock %}
-{% block content %}
+{% block polls-content %}
     <h1>有哪些投票?</h1>
     {% if latest_question_list %}
         <ul>

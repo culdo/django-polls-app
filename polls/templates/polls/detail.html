@@ -1,6 +1,6 @@
-{% extends "base_generic.html" %}
+{% extends "polls/base.html" %}
 {% block title %}投下你的一票{% endblock %}
-{% block content %}
+{% block polls-content %}
     <h1>投下你的一票</h1>
     <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}

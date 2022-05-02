@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <div class="top-bar">
+        <a class="btn btn-primary" href="{% url 'login' %}" role="button">登入</a>
+        <a class="btn btn-primary" href="{% url 'django_registration_register' %}" role="button">註冊</a>
+    </div>
+    {% block polls-content %}{% endblock %}
+{% endblock %}
