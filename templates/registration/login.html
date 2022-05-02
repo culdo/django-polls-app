@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>你無權限訪問此頁面。請登入後再試一次。</p>
+    {% else %}
+      <p>請登入後訪問此頁面。</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table class="table-center">
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="登入" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">忘記密碼?</a></p>
+
+{% endblock %}

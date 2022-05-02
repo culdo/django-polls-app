@@ -48,6 +48,7 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = "use4rline@gmail.com"
 EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 EMAIL_USE_SSL = True
+LOGIN_REDIRECT_URL = "/polls/"
 
 # Application definition
 
