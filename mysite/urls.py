@@ -21,6 +21,7 @@ from mysite.admin import admin_site
 urlpatterns = [
     path('', RedirectView.as_view(pattern_name='polls:index')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django_registration.backends.activation.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin_site.urls),
 ]

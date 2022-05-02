@@ -4,7 +4,7 @@ li a {
 a {
     display:block
 }
-.vote-list {
+.mycenter {
     font-size: x-large;
     width: 50%;
     text-align: center;
@@ -12,4 +12,12 @@ a {
     margin-left: auto;
     margin-right: auto;
     /*background-color: a;*/
+}
+
+.table-center {
+    width: 75%;
+}
+
+.helptext {
+    display: none;
 }

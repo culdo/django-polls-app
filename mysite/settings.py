@@ -42,6 +42,12 @@ SECRET_KEY = '%=2qos%!(bn#r@u@%xpfr15t!bnvabmj2(d$#r-k!yt@zfq^va'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ACCOUNT_ACTIVATION_DAYS = 3
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "use4rline@gmail.com"
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_USE_SSL = True
 
 # Application definition
 
@@ -71,7 +77,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

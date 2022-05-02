@@ -1,0 +1,4 @@
+您好，{{ user.username }}
+您的驗證連結： {{site.domain}}{% url 'django_registration_activate' activation_key %}
+
+此連結將於{{ expiration_days }}天後到期。
