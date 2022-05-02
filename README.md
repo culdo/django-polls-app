@@ -1,5 +1,11 @@
 # Django 投票APP
-The demo app made by following the official tutorial and also deploy on Heroku
+The demo app of the official tutorial with additional features and also deploy on Heroku
+# Features
+* User register / login
+* Admin site
+* Polls list
+* Voting
+* Vote detail
 # Database
 * Heroku Postgres
 # Developing
