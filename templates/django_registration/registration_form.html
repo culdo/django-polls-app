@@ -7,11 +7,11 @@
         <table class="table-center">
            {{ form.as_table }}
         </table>
-        <input type="submit" value="Sign Up"/>
+        <input type="submit" value="註冊"/>
         <input type="hidden" name="next" value="{{ next }}"/>
     </form>
 
-    <p><a href="{% url 'login' %}">Login?</a></p>
-    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    <p><a href="{% url 'login' %}">登入?</a></p>
+    <p><a href="{% url 'password_reset' %}">忘記密碼?</a></p>
 
 {% endblock %}
