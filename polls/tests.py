@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
 
-from .models import Question
+from .models import Question, Choice
 
 
 class QuestionModelTests(TestCase):
@@ -37,14 +37,17 @@ class QuestionModelTests(TestCase):
         self.assertIs(future_question.was_published_recently(), False)
 
 
-def create_question(question_text, days):
+def create_question(question_text, days, choice_texts=()):
     """
     Create a question with the given `question_text` and published the
     given number of `days` offset to now (negative for questions published
     in the past, positive for questions that have yet to be published).
     """
     time = timezone.now() + datetime.timedelta(days=days)
-    return Question.objects.create(question_text=question_text, pub_date=time)
+    question = Question.objects.create(question_text=question_text, pub_date=time)
+    for text in choice_texts:
+        Choice.objects.create(question=question, choice_text=text)
+    return question
 
 
 class QuestionIndexViewTests(TestCase):
@@ -125,3 +128,17 @@ class QuestionDetailViewTests(TestCase):
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+
+class QuestionVoteTests(TestCase):
+    def test_vote(self):
+        vote_question = create_question(question_text='Vote Question.', days=0,
+                                        choice_texts=["choice_a", "choice_b"])
+        url = reverse('polls:vote', args=(vote_question.id,))
+        response = self.client.post(url, {"choice": vote_question.choice_set.all()[0].id}, follow=True)
+        self.assertContains(response, f"{vote_question.choice_set.all()[0].choice_text} -- 1 票")
+
+
+class LoginTests(TestCase):
+    def test_login(self):
+        pass
