@@ -24,6 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run Unit Tests
+        env:
+          EMAIL_HOST_USER: ${{secrets.EMAIL_HOST_USER}}
+          EMAIL_HOST_PASSWORD: ${{secrets.EMAIL_HOST_PASSWORD}}
         run: |
           python manage.py test --debug-mode
       - name: Deploy on Heroku
