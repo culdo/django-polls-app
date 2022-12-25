@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.utils import timezone
 from django.urls import reverse
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password
+from django.test.client import Client
 
 from .models import Question, Choice
 
@@ -133,7 +134,18 @@ class QuestionDetailViewTests(TestCase):
 
 
 class QuestionVoteTests(TestCase):
-    def test_vote(self):
+    def setUp(self):
+        self.user = User.objects.create_user('test_user', 'test_user@example.com', 'test_password')
+
+    def test_guest_vote(self):
+        vote_question = create_question(question_text='Vote Question.', days=0,
+                                        choice_texts=["choice_a", "choice_b"])
+        url = reverse('polls:vote', args=(vote_question.id,))
+        response = self.client.post(url, {"choice": vote_question.choice_set.all()[0].id}, follow=True)
+        self.assertContains(response, "請登入後訪問此頁面。")
+
+    def test_user_vote(self):
+        self.client.login(username='test_user', password='test_password')
         vote_question = create_question(question_text='Vote Question.', days=0,
                                         choice_texts=["choice_a", "choice_b"])
         url = reverse('polls:vote', args=(vote_question.id,))
